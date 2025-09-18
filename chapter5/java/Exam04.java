@@ -1,0 +1,10 @@
+package chapter5.java;
+
+    public class Exam04 {
+        public static void main(String[] args) {
+            int max = 0;
+            int[] array = { 1, 5, 3, 8, 2 };
+            // 여기서부터 작성
+            System.out.println("max: " + max);
+        }
+     }
