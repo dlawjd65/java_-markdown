@@ -16,7 +16,7 @@ public class leanjava2 {
         int result = num1 + num2;
 
         System.out.println("덧셈 결과: " + result);
-        scanner.close();
+        scanner.close(); //Scanner쓰면 닫아주기
     }
 }
 
