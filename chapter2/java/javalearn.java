@@ -5,7 +5,7 @@ public class javalearn {
 
         int result = (int) (var1 + var2);
 
-        System.out.println("null");
+        System.out.println("");
         System.out.println(result);
 
 
