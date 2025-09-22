@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoginResult Enum - Java to TypeScript 변환</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 15px;
+        }
+        .code-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .code-block {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            overflow-x: auto;
+        }
+        .java { border-left-color: #f39c12; }
+        .python { border-left-color: #3498db; }
+        .typescript { border-left-color: #9b59b6; }
+        
+        .login-demo {
+            background: #e8f5e8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .input-group {
+            margin: 10px 0;
+        }
+        label {
+            display: inline-block;
+            width: 100px;
+            font-weight: bold;
+        }
+        input {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            width: 200px;
+        }
+        .btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+            font-size: 14px;
+        }
+        .btn:hover {
+            background: #2980b9;
+        }
+        .result {
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        .success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .fail-id { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .fail-password { background: #fff3cd; color: #856404; border: 1px solid #ffeaa7; }
+        
+        .enum-demo {
+            background: #f0f8ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .enum-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .enum-item {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .enum-item:hover {
+            background: #e3f2fd;
+            transform: translateY(-2px);
+        }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 LoginResult Enum 변환 데모</h1>
+        <p style="text-align: center; color: #666;">
+            Java Enum을 Python과 TypeScript로 변환한 예제
+        </p>
+        
+        <div class="code-comparison">
+            <div class="code-block java">
+                <h4>☕ Java 원본</h4>
+                <pre>public enum LoginResult {
+    SUCCESS, 
+    FAIL_ID, 
+    FAIL_PASSWORD
+}
+
+// 사용 예제
+LoginResult result = LoginResult.FAIL_PASSWORD;
+if (result == LoginResult.SUCCESS) {
+    // 성공 처리
+} else if (result == LoginResult.FAIL_ID) {
+    // ID 실패 처리
+}</pre>
+            </div>
+            
+            <div class="code-block python">
+                <h4>🐍 Python Enum</h4>
+                <pre>from enum import Enum, auto
+
+class LoginResult(Enum):
+    SUCCESS = auto()
+    FAIL_ID = auto()
+    FAIL_PASSWORD = auto()
+    
+    def get_message(self):
+        messages = {
+            LoginResult.SUCCESS: "로그인 성공",
+            LoginResult.FAIL_ID: "ID 오류",
+            LoginResult.FAIL_PASSWORD: "PW 오류"
+        }
+        return messages.get(self)</pre>
+            </div>
+            
+            <div class="code-block typescript">
+                <h4>⚡ TypeScript Enum</h4>
+                <pre>enum LoginResult {
+    SUCCESS = "SUCCESS",
+    FAIL_ID = "FAIL_ID",
+    FAIL_PASSWORD = "FAIL_PASSWORD"
+}
+
+function getMessage(result: LoginResult): string {
+    const messages: Record&lt;LoginResult, string&gt; = {
+        [LoginResult.SUCCESS]: "로그인 성공",
+        [LoginResult.FAIL_ID]: "ID 오류",
+        [LoginResult.FAIL_PASSWORD]: "PW 오류"
+    };
+    return messages[result];
+}</pre>
+            </div>
+        </div>
+        
+        <div class="login-demo">
+            <h3>🎮 로그인 테스트 데모</h3>
+            <div class="input-group">
+                <label>아이디:</label>
+                <input type="text" id="userId" placeholder="admin, user, test" value="admin">
+            </div>
+            <div class="input-group">
+                <label>비밀번호:</label>
+                <input type="password" id="password" placeholder="비밀번호 입력" value="12345">
+            </div>
+            <button class="btn" onclick="testLogin()">🚀 로그인 테스트</button>
+            <button class="btn" onclick="showValidAccounts()">📋 유효한 계정 보기</button>
+            
+            <div id="loginResult"></div>
+            <div id="accountList" style="display: none;">
+                <h4>유효한 계정:</h4>
+                <ul>
+                    <li>admin / 12345</li>
+                    <li>user / password</li>
+                    <li>test / 1234</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="enum-demo">
+            <h3>🎯 Enum 값들 테스트</h3>
+            <div class="enum-list">
+                <div class="enum-item" onclick="testEnumValue('SUCCESS')">
+                    <strong>SUCCESS</strong>
+                    <p>로그인 성공 상태를 나타냅니다</p>
+                </div>
+                <div class="enum-item" onclick="testEnumValue('FAIL_ID')">
+                    <strong>FAIL_ID</strong>
+                    <p>아이디가 존재하지 않는 상태</p>
+                </div>
+                <div class="enum-item" onclick="testEnumValue('FAIL_PASSWORD')">
+                    <strong>FAIL_PASSWORD</strong>
+                    <p>비밀번호가 틀린 상태</p>
+                </div>
+            </div>
+            <div id="enumResult"></div>
+        </div>
+    </div>
+
+    <script>
+        // TypeScript Enum을 JavaScript로 구현
+        const LoginResult = {
+            SUCCESS: "SUCCESS",
+            FAIL_ID: "FAIL_ID", 
+            FAIL_PASSWORD: "FAIL_PASSWORD"
+        };
+
+        // 로그인 메시지 함수
+        function getLoginMessage(result) {
+            const messages = {
+                [LoginResult.SUCCESS]: "✅ 로그인 성공",
+                [LoginResult.FAIL_ID]: "❌ 로그인 실패: 아이디가 존재하지 않음",
+                [LoginResult.FAIL_PASSWORD]: "⚠️ 로그인 실패: 패스워드가 틀림"
+            };
+            return messages[result] || "알 수 없는 오류";
+        }
+
+        // 로그인 시스템 클래스
+        class LoginSystem {
+            constructor() {
+                this.validUsers = [
+                    { id: "admin", password: "12345", name: "관리자" },
+                    { id: "user", password: "password", name: "사용자" },
+                    { id: "test", password: "1234", name: "테스터" }
+                ];
+            }
+
+            authenticate(credentials) {
+                const user = this.validUsers.find(u => u.id === credentials.userId);
+                
+                if (!user) {
+                    return LoginResult.FAIL_ID;
+                }
+                
+                if (user.password !== credentials.password) {
+                    return LoginResult.FAIL_PASSWORD;
+                }
+                
+                return LoginResult.SUCCESS;
+            }
+
+            getUserInfo(userId) {
+                return this.validUsers.find(u => u.id === userId) || null;
+            }
+        }
+
+        const loginSystem = new LoginSystem();
+
+        function testLogin() {
+            const userId = document.getElementById('userId').value;
+            const password = document.getElementById('password').value;
+            
+            const result = loginSystem.authenticate({ userId, password });
+            const message = getLoginMessage(result);
+            
+            let resultClass = '';
+            if (result === LoginResult.SUCCESS) resultClass = 'success';
+            else if (result === LoginResult.FAIL_ID) resultClass = 'fail-id';
+            else if (result === LoginResult.FAIL_PASSWORD) resultClass = 'fail-password';
+            
+            const resultHtml = `
+                <div class="result ${resultClass}">
+                    <h4>로그인 결과</h4>
+                    <p><strong>입력:</strong> ID="${userId}", Password="${password}"</p>
+                    <p><strong>결과:</strong> ${result}</p>
+                    <p><strong>메시지:</strong> ${message}</p>
+                    ${result === LoginResult.SUCCESS ? 
+                        `<p><strong>환영합니다!</strong> ${loginSystem.getUserInfo(userId)?.name}님</p>` : 
+                        ''}
+                </div>
+            `;
+            
+            document.getElementById('loginResult').innerHTML = resultHtml;
+        }
+
+        function testEnumValue(enumValue) {
+            const message = getLoginMessage(enumValue);
+            const resultHtml = `
+                <div class="result ${enumValue.toLowerCase().replace('_', '-')}">
+                    <h4>Enum 값: ${enumValue}</h4>
+                    <p>${message}</p>
+                    <p><code>LoginResult.${enumValue}</code>의 결과입니다.</p>
+                </div>
+            `;
+            document.getElementById('enumResult').innerHTML = resultHtml;
+        }
+
+        function showValidAccounts() {
+            const accountList = document.getElementById('accountList');
+            accountList.style.display = accountList.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // 페이지 로드 시 초기 실행
+        window.onload = function() {
+            console.log("=== LoginResult Enum Demo ===");
+            console.log("Available enum values:", Object.keys(LoginResult));
+            
+            // 모든 enum 값에 대한 메시지 출력
+            Object.values(LoginResult).forEach(result => {
+                console.log(`${result}: ${getLoginMessage(result)}`);
+            });
+        };
+    </script>
+</body>
+</html>
