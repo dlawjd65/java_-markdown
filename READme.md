@@ -245,15 +245,15 @@ java HelloWorld
 ```
 
 ### 3. 설치한 확장 프로그램
-1. Extension Pack for JAVA
-2. Debugger for JAVA
-3. MAVEN for Java
-4. Dev Containters
-5. ERD Edit
-6. Python
-7. Community Server Connect(tomcat대신)
+1. Extension Pack for JAVA<br> 자바 코드 작성, 빌드, 디버깅, 단위 테스트 환경을 한 번에 세팅<br><br>
+2. Debugger for JAVA<br> 단계별로 실행·변수값 추적 및 디버깅, IDE급 디버깅 경험을 제공<br><br>
+3. MAVEN for Java<br>pom.xml을 인식해 dependency 추가/업데이트 자동화,<br> Spring Boot, Tomcat 등 Maven 기반 프로젝트 관리<br><br>
+4. Dev Containters <br> .devcontainer 폴더에 Dockerfile/설정을 넣으면<br> “Reopen in Container” 클릭 → 컨테이너 안에서 바로 코딩·빌드가능 <br>VS Code가 Docker 컨테이너 내부를 개발 환경처럼 사용할 수 있음<br><br>
+5. ERD Edit<br>데이터베이스 테이블 관계도를 시각적으로 편집<br><br>
+6. Python<br>Python 언어 지원, 가상환경(venv, conda) 인식, 테스트 실행, 포맷터(Black, autopep8) 등<br>Flask/Django 서버 개발, 데이터 분석, 스크립트 작성<br><br>
+7. Community Server Connect(tomcat대신)<br>Tomcat, Jetty 같은 서버 런타임을 VS Code에서 직접 실행/배포할 수 있도록 도움
 
-
+<br>
 <br>
 
 ## 🔗 참고하기 좋은 자료
